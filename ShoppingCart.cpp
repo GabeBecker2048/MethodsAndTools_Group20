@@ -5,6 +5,7 @@
 #include "ShoppingCart.h"
 #include "item.h"
 #include "inventory.h"
+#include "json/json.h"
 
 using std::string;
 using std::vector;
@@ -24,7 +25,9 @@ ShoppingCart::~ShoppingCart()
 
 void ShoppingCart::add(item)//adds item to cart
 {
-/// if(item.view_stock !=0)???
+
+  
+if(
  incart.push_back(item)
 }
 
