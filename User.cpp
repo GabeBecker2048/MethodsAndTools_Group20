@@ -1,8 +1,6 @@
 #include "User.h"
 
 
-
-
 void User::login(string name, string password)
 {
     
