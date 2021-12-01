@@ -19,7 +19,7 @@ class User {
     
     public:
         
-        User() : name(" "), password(" ") {}
+        User() : name(" "), password(" "), cardNum(0), address(" ") {}
         ~User();
         
         void login(string name, string password);
@@ -31,7 +31,7 @@ class User {
         int get_payment_info();
         void set_payment_info(int cardNum);
         
-        void create_account(string name, string password);
+        void create_account(string name, string password, int cardNum, string address);
         void delete_account();
         
         void checkout();
