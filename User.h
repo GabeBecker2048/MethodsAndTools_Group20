@@ -20,7 +20,7 @@ class User {
     public:
         
         User() : name(" "), password(" "), cardNum(0), address(" ") {}
-        ~User();
+
         
         void login(string name, string password);
         void logout();
