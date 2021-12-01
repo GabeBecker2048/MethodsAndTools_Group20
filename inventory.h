@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
+#include <fstream>
 
+#include "json/json.h"
 #include "item.h"
 
 #ifndef INVENTORY_H
@@ -22,6 +24,7 @@ public:
 	vector<Item> view_stock();
 	vector<Item> view_category(string category);
 	void update();
+	void save();
 	
 	Inventory();
 	~Inventory();

@@ -1,14 +1,14 @@
-#include <string>
-#include <vector>
 
 #include "inventory.h"
-#include "item.h"
+
 
 using std::string;
 using std::vector;
 
 Inventory::Inventory() {
-	//something with the files
+		
+	//update();
+	
 }
 
 Inventory::~Inventory() {
@@ -83,5 +83,64 @@ vector<Item> Inventory::view_category(string category){
 }
 
 void Inventory::update(){
-	//???
+	
+	// creates the json dictionary
+	Json::Value stock_json;
+	
+	// loads data from file
+	std::ifstream stockfile("./inventory.json");
+	stockfile >> stock_json;
+	stockfile.close();
+	
+	
+	// rebuilds the stock vector from stock.json
+	stock.clear();
+	for(int i = 0; i < stock_json["item name"].size(); i++) {
+		
+		string category = stock_json["categories"][i].asString();
+		string name = stock_json["item name"][i].asString();
+		int amount = stock_json["item amount"][i].asInt();
+		float price = stock_json["price"][i].asFloat();
+		
+		add_stock(Item(name, category, price), amount);
+	}
+}
+
+void Inventory::save() {
+	
+	// creates the json dictionary
+	Json::Value stock_json;
+	
+	// loops though the stock
+	for(int i = 0; i < stock.size(); i++) {
+		
+		// checks if the item is already in the stock_json
+		bool found = false;
+		for(int j = 0; j < stock_json["item name"].size(); j++) {
+			
+			// adds to amount if already found
+			if (stock[i].get_name() == stock_json["item name"][j].asString()) {
+				
+				// increments the amount
+				stock_json["item amount"][j] = stock_json["item amount"][j].asInt() + 1;
+				
+				found = true;
+			}
+		}
+	
+		// if the item is not already in the json dictionary, it is added
+		if (!found) {
+			stock_json["categories"].append(stock[i].get_category());
+			stock_json["item name"].append(stock[i].get_name());
+			stock_json["item amount"].append(1);
+			stock_json["price"].append(stock[i].get_price());
+		}
+	}
+	
+	// creates the file and saves data to file
+	std::ofstream stockfile("./inventory.json");
+	stockfile << stock_json;
+	stockfile.close();
+	
+	
 }
