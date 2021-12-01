@@ -39,7 +39,7 @@ void User::set_payment_info(int cardNum)
 }
 
 
-void User::create_account(string name, string password)
+void User::create_account(string name, string password, int cardNum, string address)
 {
     
 }
@@ -53,6 +53,9 @@ void User::delete_account()
 
 void User::checkout()
 {
-    
+    for(int i;i<cart.size();i++)
+    {
+        cart.erase(cart.begin()+i);
+    }
 }
 
