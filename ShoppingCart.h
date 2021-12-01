@@ -18,16 +18,16 @@ Class ShoppingCart
 
 private:
 
-vector<Item> incart;
+  vector<Item> incart;
 
 public:
-void add ();
-void remove ();
-void remove_all():
-void view();
+  void add ();
+  void remove ();
+  void remove_all():
+  void view();
 
-ShoppingCart();
-~ShoppingCart();
+  ShoppingCart();
+  ~ShoppingCart();
 
 };
 
