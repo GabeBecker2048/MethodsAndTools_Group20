@@ -2,7 +2,7 @@
 #include "User.h"
 
 
-void User::login(string name, string password)
+int User::login(string name, string password)
 {
     Json::Value user;
     
@@ -17,17 +17,17 @@ void User::login(string name, string password)
         if(user["username"][i] == name && user["password"][i] == password)//if the username at that index matches and the password at that index ALSO matches, continue
         {
             cout << "Login successful!" << endl;
-            return;
+            return 1;
         }
         else
         {
             cout << "Username or password is incorrect." << endl;
-            return;
+            return 0;
         }
 }
 
 
-void User::logout()
+int User::logout()
 {
     
 }
