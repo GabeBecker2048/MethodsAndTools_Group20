@@ -35,7 +35,7 @@ void ShoppingCart::remove_all()
 {
  for(int i;i<cart.size();i++)
      {
-         cart.erase(cart.begin()+i);
+         incart.erase(incart.begin()+i);
      }
 }
 void ShoppingCart::view()
