@@ -10,13 +10,13 @@ using std::string;
 using std::vector;
 using namespace::std:
 
-void ShoppingCart::ShoppingCart()
+ShoppingCart::ShoppingCart()
 {
 
 
 }
 
-void ShoppingCart::~ShoppingCart()
+ShoppingCart::~ShoppingCart()
 {
 
 
