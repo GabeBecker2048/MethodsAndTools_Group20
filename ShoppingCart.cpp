@@ -25,7 +25,7 @@ void ShoppingCart::add(Item item)//adds item to cart
  // creates the json dictionary
 Json::Value stock_json;	
 // loads data from file
-std::ifstream stockfile ("./inventory.json");
+std::ifstream stockfile ("./data/Stock.json");
 stockfile >> stock_json;
 stockfile.close();
 	

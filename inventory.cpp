@@ -88,7 +88,7 @@ void Inventory::update(){
 	Json::Value stock_json;
 	
 	// loads data from file
-	std::ifstream stockfile("./inventory.json");
+	std::ifstream stockfile("./data/Stock.json");
 	stockfile >> stock_json;
 	stockfile.close();
 	
@@ -138,7 +138,7 @@ void Inventory::save() {
 	}
 	
 	// creates the file and saves data to file
-	std::ofstream stockfile("./inventory.json");
+	std::ofstream stockfile("./data/Stock.json");
 	stockfile << stock_json;
 	stockfile.close();
 	
