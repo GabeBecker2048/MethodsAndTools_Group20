@@ -9,34 +9,34 @@
 using std::string;
 using std::vector;
 
-Cart::Cart()
+ShoppingCart::ShoppingCart()
 {
 
 
 }
 
-Cart::~Cart()
+ShoppingCart::~ShoppingCart()
 {
 
 
 }
 
-Cart::add()
+ShoppingCart::add()
 {
 
 
 }
-Cart::remove()
+ShoppingCart::remove()
 {
 
 
 }
 
-Cart::remove_all()
+ShoppingCart::remove_all()
 {
 
 }
-Cart::view()
+ShoppingCart::view()
 {
 
 
