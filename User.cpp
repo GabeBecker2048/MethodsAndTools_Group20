@@ -1,3 +1,4 @@
+
 #include "User.h"
 
 
@@ -40,6 +41,11 @@ void User::set_payment_info(int cardNum)
 void User::create_account(string name, string password, int cardNum, string address)
 {
     Json::Value user;
+    
+    // loads existing user data from user.json
+    std::ifstream user_file("./user.json");
+    user_file >> user;
+    user_file.close();
     
     for(int i = 0;i<user["username"].size(); i++)
     {
