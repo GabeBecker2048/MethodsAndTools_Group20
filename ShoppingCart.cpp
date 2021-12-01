@@ -23,13 +23,11 @@ ShoppingCart::~ShoppingCart()
 
 ShoppingCart::add()
 {
-
-
+ incart.push_back(item)
 }
-ShoppingCart::remove()
+ShoppingCart::remove(item)
 {
-
-
+stock.erase(item);
 }
 
 ShoppingCart::remove_all()
