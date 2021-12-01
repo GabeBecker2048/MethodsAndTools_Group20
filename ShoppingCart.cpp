@@ -8,6 +8,7 @@
 
 using std::string;
 using std::vector;
+using namespace::std:
 
 void ShoppingCart::ShoppingCart()
 {
@@ -21,28 +22,35 @@ void ShoppingCart::~ShoppingCart()
 
 }
 
-void ShoppingCart::add()
+void ShoppingCart::add(item)//adds item to cart
 {
  incart.push_back(item)
 }
 
-void ShoppingCart::remove(item)
+void ShoppingCart::remove(item)//removes an instance of an item from cart
 {
  for(int i;i<cart.size();i++)
  {
-  if(
+  if(item == (incart.begin()+i) )//erases one instance of an item in cart
+  {
+  incart.erase(incart.begin()+i);
+  break
+  }
 }
 
-void ShoppingCart::remove_all()
+void ShoppingCart::remove_all()//clears all items from cart
 {
  for(int i;i<cart.size();i++)
      {
          incart.erase(incart.begin()+i);
      }
 }
-void ShoppingCart::view()
+void ShoppingCart::view()//prints a list of items in cart
 {
-
+ for(int i;i<cart.size();i++)
+     {
+         cout<<(incart.begin()+i);
+     }
 
 
 }
