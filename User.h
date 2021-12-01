@@ -24,8 +24,8 @@ class User {
         User() : name(" "), password(" "), cardNum(0), address(" ") {}
 
         
-        void login(string name, string password);
-        void logout();
+        int login(string name, string password);
+        int logout();
         
         string get_shipping_info();
         void set_shipping_info(string address);
