@@ -13,6 +13,7 @@ public:
     category = y;
     price = z;
   }
+  ~Item();
 
   string get_name() {
     return name;
