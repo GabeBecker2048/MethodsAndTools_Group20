@@ -20,9 +20,13 @@ private:
 
 
 public:
+void add ();
+void remove ();
+void remove_all():
+void view();
 
-
-
+Cart();
+~Cart();
 
 };
 
