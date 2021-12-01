@@ -24,6 +24,7 @@ ShoppingCart::~ShoppingCart()
 
 void ShoppingCart::add(item)//adds item to cart
 {
+/// if(item.view_stock !=0)???
  incart.push_back(item)
 }
 
