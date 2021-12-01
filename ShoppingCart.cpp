@@ -28,7 +28,9 @@ void ShoppingCart::add()
 
 void ShoppingCart::remove(item)
 {
-stock.erase(item);
+ for(int i;i<cart.size();i++)
+ {
+  if(
 }
 
 void ShoppingCart::remove_all()
