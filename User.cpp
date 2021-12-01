@@ -47,6 +47,8 @@ void User::create_account(string name, string password, int cardNum, string addr
     user_file >> user;
     user_file.close();
     
+    //loops through the usernames
+    //if the username entered is the same as another username, dont move forward
     for(int i = 0;i<user["username"].size(); i++)
     {
         if(user["username"][i] == name)
@@ -56,11 +58,13 @@ void User::create_account(string name, string password, int cardNum, string addr
         }
     }
     
+    //adds various user info
     user["username"].append(name);
     user["password"].append(password);
     user["paymentinfo"].append(cardNum);
     user["address"].append(address);
     
+    //writes those values to the file
     std::ofstream outuserfile ("./user.json");
     outuserfile << user;
     outuserfile.close;
@@ -76,6 +80,6 @@ void User::delete_account()
 
 void User::checkout()
 {
-    cart.remove_all();
+    cart.remove_all(); //calls the remove_all() function from the shoppingcart that removes everything
 }
 
