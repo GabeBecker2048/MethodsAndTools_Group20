@@ -9,32 +9,33 @@
 using std::string;
 using std::vector;
 
-ShoppingCart::ShoppingCart()
+void ShoppingCart::ShoppingCart()
 {
 
 
 }
 
-ShoppingCart::~ShoppingCart()
+void ShoppingCart::~ShoppingCart()
 {
 
 
 }
 
-ShoppingCart::add()
+void ShoppingCart::add()
 {
  incart.push_back(item)
 }
-ShoppingCart::remove(item)
+
+void ShoppingCart::remove(item)
 {
 stock.erase(item);
 }
 
-ShoppingCart::remove_all()
+void ShoppingCart::remove_all()
 {
 
 }
-ShoppingCart::view()
+void ShoppingCart::view()
 {
 
 
