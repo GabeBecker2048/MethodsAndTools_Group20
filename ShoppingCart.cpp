@@ -35,6 +35,7 @@ void ShoppingCart::remove(item)//removes an instance of an item from cart
   {
   incart.erase(incart.begin()+i);
   break
+   }
   }
 }
 
@@ -49,8 +50,7 @@ void ShoppingCart::view()//prints a list of items in cart
 {
  for(int i;i<cart.size();i++)
      {
-         cout<<(incart.begin()+i);
+         cout<<" "<<(incart.begin()+i);
      }
-
-
+cout<<endl;
 }
