@@ -8,6 +8,8 @@
 #include "ShoppingCart.h"
 
 using std::string;
+using std::cout;
+using std::endl;
 
 
 class User {
@@ -34,7 +36,7 @@ class User {
         void set_payment_info(int cardNum);
         
         void create_account(string name, string password, int cardNum, string address);
-        void delete_account();
+        void delete_account(string name, string password);
         
         void checkout();
 };

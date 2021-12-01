@@ -7,7 +7,7 @@ int User::login(string name, string password)
     Json::Value user;
     
     // loads existing user data from user.json
-    std::ifstream user_file("./user.json");
+    std::ifstream user_file("./data/User.json");
     user_file >> user;
     user_file.close();
     
@@ -24,6 +24,7 @@ int User::login(string name, string password)
             cout << "Username or password is incorrect." << endl;
             return 0;
         }
+	}
 }
 
 
@@ -62,7 +63,7 @@ void User::create_account(string name, string password, int cardNum, string addr
     Json::Value user;
     
     // loads existing user data from user.json
-    std::ifstream user_file("./user.json");
+    std::ifstream user_file("./data/User.json");
     user_file >> user;
     user_file.close();
     
@@ -84,9 +85,9 @@ void User::create_account(string name, string password, int cardNum, string addr
     user["address"].append(address);
     
     //writes those values to the file
-    std::ofstream outuserfile ("./user.json");
+    std::ofstream outuserfile ("./data/User.json");
     outuserfile << user;
-    outuserfile.close;
+    outuserfile.close();
         
 }
 
@@ -96,17 +97,19 @@ void User::delete_account(string name, string password)
     Json::Value user;
     
     // loads existing user data from user.json
-    std::ifstream user_file("./user.json");
+    std::ifstream user_file("./data/User.json");
     user_file >> user;
     user_file.close();
     
     
     for(int i = 0;i<user["username"].size();i++)//loops through the usernames
     {
-        if(user["username"][i] == name && user["password"][i] == password)//if the username at that index matches and the password at that index ALSO matches, continue
+        if(user["username"][i].asString() == name && user["password"][i].asString() == password)//if the username at that index matches and the password at that index ALSO matches, continue
         {
-            user["username"].erase(user["username"].begin()+i);
-            user["password"].erase(user["password"].begin()+i);
+			Json::ArrayIndex index = Json::ArrayIndex(i);
+			Json::Value *returned;
+            user["username"].removeIndex(i, returned);
+            user["password"].removeIndex(i, returned);
             return;
         }
         else
@@ -114,6 +117,7 @@ void User::delete_account(string name, string password)
             cout << "Username or password is incorrect." << endl;
             return;
         }
+	}
 }
 
 
