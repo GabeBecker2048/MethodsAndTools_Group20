@@ -1,6 +1,9 @@
 #include <string>
 using std::string;
 
+#ifndef ITEM_H
+#define ITEM_H
+
 class Item {
 private:
   string name;
@@ -18,3 +21,5 @@ public:
 
   double get_price();
 };
+
+#endif

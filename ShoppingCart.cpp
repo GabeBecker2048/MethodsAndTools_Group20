@@ -1,15 +1,11 @@
 //cpp for shopping cart
-#include <string>
-#include <vector>
 
 #include "ShoppingCart.h"
-#include "item.h"
-#include "inventory.h"
-#include "json/json.h"
+
 
 using std::string;
 using std::vector;
-using namespace::std:
+using namespace::std;
 
 ShoppingCart::ShoppingCart()
 {
@@ -23,7 +19,7 @@ ShoppingCart::~ShoppingCart()
 
 }
 
-void ShoppingCart::add(item)//adds item to cart
+void ShoppingCart::add(Item item)//adds item to cart
 {
 
  // creates the json dictionary
@@ -33,40 +29,37 @@ std::ifstream stockfile ("./inventory.json");
 stockfile >> stock_json;
 stockfile.close();
 	
-for (int i = 0; i<stock_json["name"]; i++) 
+for (int i = 0; i<stock_json["name"].size(); i++) 
 {
 	if (stock_json["names"][i] == item.get_name())// this code will run if the item is in stock. If the item exists, there is at least one
 	{
-		incart.push_back(item)
+		incart.push_back(item);
 	}		
 	} 
  
 }
 
-void ShoppingCart::remove(item)//removes an instance of an item from cart
+void ShoppingCart::remove(Item item)//removes an instance of an item from cart
 {
- for(int i;i<cart.size();i++)
+ for(int i;i<incart.size();i++)
  {
-  if(item == (incart.begin()+i) )//erases one instance of an item in cart
+  if(item.get_name() == incart[i].get_name() )//erases one instance of an item in cart
   {
   incart.erase(incart.begin()+i);
-  break
+  break;
    }
   }
 }
 
 void ShoppingCart::remove_all()//clears all items from cart
 {
- for(int i;i<cart.size();i++)
+ for(int i;i<incart.size();i++)
      {
          incart.erase(incart.begin()+i);
      }
 }
-void ShoppingCart::view()//prints a list of items in cart
+
+vector<Item> ShoppingCart::view()//prints a list of items in cart
 {
- for(int i;i<cart.size();i++)
-     {
-         cout<<" "<<(incart.begin()+i);
-     }
-cout<<endl;
+return incart;
 }

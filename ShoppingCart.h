@@ -1,19 +1,19 @@
 //shopping cart h file
 #include <string>
 #include <vector>
+#include <fstream>
 
 #include "item.h"
-#include "inventory.h"
-
-#ifndef SHOPPINGCART_H
-#define SHOPPINGCART_H
+#include "json/json.h"
 
 using std::string;
 using std::vector;
 
+#ifndef SHOPPINGCART_H
+#define SHOPPINGCART_H
 
 
-Class ShoppingCart
+class ShoppingCart
 {
 
 private:
@@ -21,10 +21,10 @@ private:
 vector<Item> incart;
 
 public:
-void add(item);
-void remove(item);
-void remove_all():
-void view();
+void add(Item item);
+void remove(Item item);
+void remove_all();
+vector<Item> view();
 
 ShoppingCart();
 ~ShoppingCart();
