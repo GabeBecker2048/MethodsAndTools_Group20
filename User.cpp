@@ -53,9 +53,6 @@ void User::delete_account()
 
 void User::checkout()
 {
-    for(int i;i<cart.size();i++)
-    {
-        cart.erase(cart.begin()+i);
-    }
+    cart.remove_all();
 }
 
