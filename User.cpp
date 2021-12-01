@@ -91,9 +91,29 @@ void User::create_account(string name, string password, int cardNum, string addr
 }
 
 
-void User::delete_account()
+void User::delete_account(string name, string password)
 {
+    Json::Value user;
     
+    // loads existing user data from user.json
+    std::ifstream user_file("./user.json");
+    user_file >> user;
+    user_file.close();
+    
+    
+    for(int i = 0;i<user["username"].size();i++)//loops through the usernames
+    {
+        if(user["username"][i] == name && user["password"][i] == password)//if the username at that index matches and the password at that index ALSO matches, continue
+        {
+            user["username"].erase(user["username"].begin()+i);
+            user["password"].erase(user["password"].begin()+i);
+            return;
+        }
+        else
+        {
+            cout << "Username or password is incorrect." << endl;
+            return;
+        }
 }
 
 
