@@ -33,7 +33,10 @@ stock.erase(item);
 
 void ShoppingCart::remove_all()
 {
-
+ for(int i;i<cart.size();i++)
+     {
+         cart.erase(cart.begin()+i);
+     }
 }
 void ShoppingCart::view()
 {
