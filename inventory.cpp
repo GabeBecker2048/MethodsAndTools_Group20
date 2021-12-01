@@ -12,7 +12,7 @@ Inventory::Inventory() {
 }
 
 Inventory::~Inventory() {
-	//???
+	vector<Item> stock;
 }
 
 void Inventory::add_stock(Item item, int amount) {
