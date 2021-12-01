@@ -23,7 +23,7 @@ public:
   }
 
   void set_price(double p) {
-    price = p;
+    this -> price = p;
   }
 
   double get_price() {
