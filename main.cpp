@@ -295,6 +295,7 @@ int main() {
 			// cart information
 			else if (choice == 2) {
 				int cart_choice = screen21();
+				choice = -1;
 			}
 				
 		}
