@@ -93,13 +93,13 @@ int main() {
 			
 			// edit payment info
 			else if (choice == 7) {
-				screen23();
+				user.address = screen23(); //test this
 				choice = -1;
 			}
 			
 			// edit shipping info
 			else if (choice == 6) {
-				screen22();
+				user.cardNum = screen22(); //test this
 				choice = -1;
 			}
 			
