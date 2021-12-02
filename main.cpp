@@ -281,6 +281,43 @@ int main() {
 			// cart information
 			else if (choice == 2) {
 				int cart_choice = screen21();
+				
+				if(cart_choice == 1)
+				{
+					choice = -1; //goes back
+				}
+				else if(cart_choice == 2)
+				{
+					user.cart.view();
+				}
+				else if(cart_choice == 3)
+				{
+					cout << "Enter item to remove\n\n";
+					string resp;
+					getline(cin,resp);
+					
+					
+					for(int j;j<user.cart.view().size();j++)
+					{
+						if(user.cart[j].get_name() == resp)
+						{
+							Item itm(resp,"",0);
+							user.cart.remove(itm);
+						}
+						else
+						{
+							cout << "There is no item by that name.\n\n";
+						}
+						
+					}
+					
+					user.cart.remove_all();
+					
+				}
+				else if(cart_choice == 4)
+				{
+					user.checkout();
+				}
 			}
 				
 		}
