@@ -1,1 +1,30 @@
-
+{
+	"address" : 
+	[
+		"123 stupid street",
+		"23423 cool st",
+		"asdfa34534",
+		"23423 asdf"
+	],
+	"password" : 
+	[
+		"abc123",
+		"becker",
+		"password",
+		"bec"
+	],
+	"payment info" : 
+	[
+		1111111111,
+		23423,
+		24234,
+		234
+	],
+	"username" : 
+	[
+		"gabe",
+		"gabe2",
+		"gabby",
+		"gg"
+	]
+}

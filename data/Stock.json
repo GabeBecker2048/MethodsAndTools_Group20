@@ -1,1 +1,26 @@
-
+{
+	"categories" : 
+	[
+		"Category1",
+		"Category2",
+		"Category2"
+	],
+	"item amount" : 
+	[
+		6,
+		1,
+		5
+	],
+	"item name" : 
+	[
+		"Item1",
+		"Item2",
+		"Item3"
+	],
+	"price" : 
+	[
+		10.99,
+		7.8899999999999997,
+		4.4900000000000002
+	]
+}

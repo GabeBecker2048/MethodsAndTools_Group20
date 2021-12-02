@@ -1,1 +1,22 @@
-
+{
+	"username":
+	[
+		"gabe",
+		"josh"
+	],
+	"cost":
+	[
+		14.55,
+		8.99
+	],
+	"shipped to":
+	[
+		"123 stupid street",
+		"321 awesome street"
+	],
+	"timestamp":
+	[
+		"1:23",
+		"2:25"
+	]
+}
