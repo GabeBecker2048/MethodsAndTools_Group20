@@ -56,8 +56,8 @@ int main() {
 			{
 				user = screen11();
 			
-				//if (user == NULL)
-				//	choice = -1;
+				if (user == NULL)
+					choice = -1;
 			}
 
 		}
@@ -383,15 +383,18 @@ User* screen11() {
 	std::getline(cin, password);
 	
 	cout << endl;
-	
-	User* user = new User();
+
+	User* user = new User;
+	user->set_name(username);
+	user->set_password(password);
+
 	
 	// attempts to log the user in
-	// int login_status = User().login(username, password);
-	// if (login_status)
-	return user;
-	// else
-	//return NULL
+	int login_status = user->login(username, password);
+	if (login_status)
+		return user;
+	else
+		return NULL;
 }
 
 // the create account screen
@@ -439,9 +442,11 @@ int screen12() {
 	
 	cout << endl;
 	
+	User user;
+	
 	// attempts to create account
-	//return User().create_account(name, password, cardNum, address);
-	return 1;
+	return user.create_account(username, password, cardNum, address);
+
 }
 
 // option screen 2
