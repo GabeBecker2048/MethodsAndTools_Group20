@@ -4,8 +4,8 @@
 
 #include "inventory.h"
 #include "item.h"
-#include "user.h"
-#include "shoppingcart.h"
+#include "User.h"
+#include "ShoppingCart.h"
 
 using std::string;
 using std::cout;
