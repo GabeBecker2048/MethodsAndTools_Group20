@@ -311,7 +311,6 @@ int main() {
 						
 					}
 					
-					user.cart.remove_all();
 					
 				}
 				else if(cart_choice == 4)
