@@ -32,8 +32,18 @@ void User::set_name(string name_arg) {
 	name = name_arg;
 }
 
+string User::get_name()
+{
+	return name;
+}
+
 void User::set_password(string password_arg){
 	password = password_arg;
+}
+
+string User::get_password()
+{
+	return password;
 }
 
 int User::logout()
@@ -137,6 +147,30 @@ int User::delete_account(string name, string password)
 
 void User::checkout()
 {
-    cart.remove_all(); //calls the remove_all() function from the shoppingcart that removes everything
+    	
+	
+	Json::Value order;
+	User user;
+	
+	int totalPrice;
+	
+	int rtime = rand() % 100;
+	
+	for(int i;i<cart.view().size();i++)
+	{
+		totalPrice += cart.view()[i].get_price();
+	}
+	
+	order["username"].append(user.get_name());
+	order["cost"].append(totalPrice);
+	order["shipped to"].append(user.get_shipping_info());
+	order["timestamp"].append(rtime);
+	
+	
+	std::ofstream order_file("./data/PreviousOrders.json");
+	order_file << order;
+	order_file.close();
+	
+	cart.remove_all(); //calls the remove_all() function from the shoppingcart that removes everything
 }
 
