@@ -317,6 +317,14 @@ int main() {
 				{
 					user.checkout();
 				}
+				
+			
+			}
+			
+			else if (choice == 1)
+			{
+				choice = -1;//goes back
+				
 			}
 				
 		}
