@@ -4,8 +4,8 @@
 
 #include "inventory.h"
 #include "item.h"
-#include "User.h"
-#include "ShoppingCart.h"
+#include "user.h"
+#include "shoppingcart.h"
 
 using std::string;
 using std::cout;
@@ -78,14 +78,10 @@ int main() {
 				Item* item_to_add = screen25(inventory);
 				
 				if(item_to_add != NULL)
-				{	
-					user.cart.add(&item_to_add);
-					cout << "Item added!\n\n";
-				}
-				else
-				{
 					cout << "Error: item not found in stock\n\n";
-				}
+				//	user->shoppingcart->add(&item)
+				//else
+				//cout << "Error: item not found in stock\n\n";
 				
 				choice = -1;
 			}
@@ -97,20 +93,38 @@ int main() {
 			
 			// edit payment info
 			else if (choice == 7) {
-				int newPaymentInfo = screen22(); //test this
-				user.set_payment_info(newPaymentInfo);
+				screen23();
 				choice = -1;
 			}
 			
 			// edit shipping info
 			else if (choice == 6) {
-				string newShipping = screen23(); //test this
-				user.set_shipping_info(newShipping);
+				screen22();
 				choice = -1;
 			}
 			
 			// view order history
 			else if (choice == 5) {
+				
+				
+				Json::Value orderhistory_json;
+				
+				// loads the order history data into a json 
+				std::ifstream orderhistory_file("./data/PreviousOrders.json");
+				orderhistory_file >> orderhistory_json;
+				orderhistory_file.close();
+				
+				// outputs the orders
+				for(int i=0; i < orderhistory_json["username"].size(); i++) {
+					
+					cout << "Order number " << i+1 << ":\n";
+					cout << "---------------\n";
+					
+					cout << "username: " << orderhistory_json["username"][i].asString() << endl;
+					cout << "total order cost: " << orderhistory_json["cost"][i].asDouble() << endl;
+					cout << "shipped to: " << orderhistory_json["shipped to"][i].asString() << endl;
+					cout << "time: " << orderhistory_json["timestamp"][i].asString() << endl << endl;
+				}
 				
 			}
 			
@@ -281,50 +295,6 @@ int main() {
 			// cart information
 			else if (choice == 2) {
 				int cart_choice = screen21();
-				
-				if(cart_choice == 1)
-				{
-					choice = -1; //goes back
-				}
-				else if(cart_choice == 2)
-				{
-					user.cart.view();
-				}
-				else if(cart_choice == 3)
-				{
-					cout << "Enter item to remove\n\n";
-					string resp;
-					getline(cin,resp);
-					
-					
-					for(int j;j<user.cart.view().size();j++)
-					{
-						if(user.cart[j].get_name() == resp)
-						{
-							Item itm(resp,"",0);
-							user.cart.remove(itm);
-						}
-						else
-						{
-							cout << "There is no item by that name.\n\n";
-						}
-						
-					}
-					
-					
-				}
-				else if(cart_choice == 4)
-				{
-					user.checkout();
-				}
-				
-			
-			}
-			
-			else if (choice == 1)
-			{
-				choice = -1;//goes back
-				
 			}
 				
 		}
