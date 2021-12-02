@@ -15,7 +15,6 @@ using std::endl;
 class User {
     private:
         
-        
         string name;
         string password;
         int cardNum;
@@ -25,22 +24,24 @@ class User {
         
         User() : name(" "), password(" "), cardNum(0), address(" ") {}
 
+		ShoppingCart cart;
         
         int login(string name, string password);
         int logout();
         
+		void set_name(string name);
+		void set_password(string password);
+		
         string get_shipping_info();
         void set_shipping_info(string address);
         
         int get_payment_info();
         void set_payment_info(int cardNum);
         
-        void create_account(string name, string password, int cardNum, string address);
-        void delete_account(string name, string password);
+        int create_account(string name, string password, int cardNum, string address);
+        int delete_account(string name, string password);
         
         void checkout();
-    
-        ShoppingCart cart;
 };
 
 
