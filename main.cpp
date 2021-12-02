@@ -78,10 +78,14 @@ int main() {
 				Item* item_to_add = screen25(inventory);
 				
 				if(item_to_add != NULL)
+				{	
+					user.cart.add(&item_to_add);
+					cout << "Item added!\n\n";
+				}
+				else
+				{
 					cout << "Error: item not found in stock\n\n";
-				//	user->shoppingcart->add(&item)
-				//else
-				//cout << "Error: item not found in stock\n\n";
+				}
 				
 				choice = -1;
 			}
