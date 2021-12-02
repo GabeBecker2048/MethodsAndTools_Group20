@@ -98,14 +98,14 @@ int main() {
 			// edit payment info
 			else if (choice == 7) {
 				int newPaymentInfo = screen22(); //test this
-				user->set_payment_info(newPaymentInfo);
+				user.set_payment_info(newPaymentInfo);
 				choice = -1;
 			}
 			
 			// edit shipping info
 			else if (choice == 6) {
 				string newShipping = screen23(); //test this
-				user->set_shipping_info(newShipping);
+				user.set_shipping_info(newShipping);
 				choice = -1;
 			}
 			
