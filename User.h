@@ -2,7 +2,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-
+#include <time.h>
+#include <stdlib.h>
 
 #include "json/json.h"
 #include "ShoppingCart.h"
@@ -31,6 +32,9 @@ class User {
         
 		void set_name(string name);
 		void set_password(string password);
+	
+	string get_name();
+	string get_password();
 		
         string get_shipping_info();
         void set_shipping_info(string address);
